@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repeat Sahi Baat Hai</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      #runButton {
+        padding: 15px 30px;
+        font-size: 24px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .fadeIn {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      .fadeIn.show {
+        opacity: 1;
+      }
+      .bold {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="runButton">Run</button>
+
+    <script>
+      document
+        .getElementById("runButton")
+        .addEventListener("click", function () {
+          // Hide the "Run" button
+          document.getElementById("runButton").style.display = "none";
+
+          // Fill the screen with "Sahi Baat Hai" with fade-in effect
+          var sahiBaat =
+            "<h1 class='bold'>Sahi Baat Hai</h1>&nbsp&nbsp&nbsp&nbsp&nbsp";
+          var sahiBaatRepeated = sahiBaat.repeat(10000);
+          var sahiBaatElement = document.createElement("div");
+          sahiBaatElement.innerHTML = sahiBaatRepeated;
+          sahiBaatElement.classList.add("fadeIn");
+          document.body.appendChild(sahiBaatElement);
+
+          // Trigger fade-in effect
+          setTimeout(function () {
+            sahiBaatElement.classList.add("show");
+          }, 100);
+        });
+    </script>
+  </body>
+</html>
